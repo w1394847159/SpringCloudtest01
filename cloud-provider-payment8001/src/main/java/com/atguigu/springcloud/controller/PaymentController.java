@@ -1,25 +1,25 @@
-package com.wufan.springcloud.controller;
+package com.atguigu.springcloud.controller;
 
-import com.wufan.springcloud.entities.CommonResult;
-import com.wufan.springcloud.entities.Payment;
-import com.wufan.springcloud.service.PaymentService;
+import com.atguigu.springcloud.entities.CommonResult;
+import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-
-@RestController
+@Controller
 @Slf4j  //日志相关注解
 public class PaymentController {
 
     @Autowired
     PaymentService paymentService;
 
-
+    //只要是json方式，就使用RequestBody获取对象
     @PostMapping(value = "/payment/create")
-    public CommonResult<Payment> create(Payment payment){
+    @ResponseBody
+    public CommonResult<Payment> create(@RequestBody Payment payment){
+        log.info("结果" + payment.getSerial());
         int result = paymentService.create(payment);
         log.info("***插入结果:" + result);
         if(result>0){
@@ -30,10 +30,13 @@ public class PaymentController {
 
     }
 
+
     @GetMapping(value = "/payment/get")
     public CommonResult<Payment> getPaymentById(@RequestParam("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("***插入结果:" + payment);
+
+
         if(payment!=null){
             return new CommonResult(200,"查询成功",payment);
         }else {

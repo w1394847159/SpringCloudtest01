@@ -1,13 +1,11 @@
-package com.wufan.springcloud.service.impl;
+package com.atguigu.springcloud.service.impl;
 
-import com.wufan.springcloud.dao.PaymentDao;
-import com.wufan.springcloud.entities.Payment;
-import com.wufan.springcloud.service.PaymentService;
-import org.apache.ibatis.annotations.Param;
+import com.atguigu.springcloud.dao.PaymentDao;
+import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
@@ -22,7 +20,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Payment getPaymentById(@Param("id") Long id) {
+    public Payment getPaymentById(Long id) {
         return paymentDao.getPaymentById(id);
     }
 }

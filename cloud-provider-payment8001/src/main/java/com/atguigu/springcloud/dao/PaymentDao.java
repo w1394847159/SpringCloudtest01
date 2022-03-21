@@ -1,9 +1,8 @@
-package com.wufan.springcloud.dao;
+package com.atguigu.springcloud.dao;
 
-import com.wufan.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Payment;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
