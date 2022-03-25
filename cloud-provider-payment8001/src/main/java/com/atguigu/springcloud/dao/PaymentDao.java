@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Component
 @Mapper
-@MapperScan("com.wufan.springcloud.dao") //扫描注解,与Mapper等价
 public interface PaymentDao {
 
     public int create(Payment payment);

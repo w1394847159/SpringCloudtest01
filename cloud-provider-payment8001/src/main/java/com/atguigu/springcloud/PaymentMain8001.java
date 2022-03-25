@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  * SpringBoot启动类
  */
 @SpringBootApplication
-@MapperScan("com.wufan.springcloud.dao") //扫描注解,与Mapper等价
+@MapperScan("com.atguigu.springcloud.dao") //扫描注解,与Mapper等价
 @ComponentScan(basePackages = "com.atguigu.springcloud")
 public class PaymentMain8001 {
     public static void main(String[] args) {

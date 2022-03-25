@@ -54,6 +54,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--将entities模块引入-->
+        <dependency>
+            <groupId>com.atguigu.springcloud</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
 
 

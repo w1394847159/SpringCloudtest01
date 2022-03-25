@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.service;
 
-import com.atguigu.springcloud.entities.Payment;
 
+import com.atguigu.springcloud.entities.Payment;
 
 public interface PaymentService {
 
