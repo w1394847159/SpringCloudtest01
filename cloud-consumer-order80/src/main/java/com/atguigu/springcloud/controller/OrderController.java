@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 public class OrderController {
 
     //本地8001提供服务的地址
-    public static final String PAYMENT_URL="http://localhost:8081";
+    public static final String PAYMENT_URL="http://localhost:8001";
 
 
     @Resource
