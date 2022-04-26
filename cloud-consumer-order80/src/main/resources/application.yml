@@ -3,3 +3,10 @@ server:
 spring:
   application:
     name: cloud-consumer-order80 #服务名
+
+eureka:
+  client:
+    register-with-eureka: true #是否注册到eureka
+    fetch-registry: true #是否发现Eurekax相关服务
+    service-url:  #指定eureka位置
+      defaultZone: http://localhost:7001/eureka

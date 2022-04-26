@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.concurrent.TimeUnit;
-
-@RestController
+@Controller
 @Slf4j  //日志相关注解
 public class PaymentController {
 
@@ -24,6 +22,7 @@ public class PaymentController {
 
     //只要是json方式，就使用RequestBody获取对象
     @PostMapping(value = "/payment/create")
+    @ResponseBody
     public CommonResult<Payment> create(@RequestBody Payment payment){
         log.info("结果" + payment.getSerial());
         int result = paymentService.create(payment);
@@ -38,6 +37,7 @@ public class PaymentController {
 
 
     @GetMapping(value = "/payment/get")
+    @ResponseBody
     public CommonResult<Payment> getPaymentById(@RequestParam("id") Long id){
         System.out.println("port="+port);
         Payment payment = paymentService.getPaymentById(id);
@@ -49,20 +49,7 @@ public class PaymentController {
         }else {
             return new CommonResult(400,"查询失败",null);
         }
-    }
 
-    /**
-     * 模拟超时情况
-     */
-    @GetMapping(value = "/payment/feign/timeout")
-    public String paymentFeignTimeout(){
-        try {
-            //暂停3s
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return port;
     }
 }
 
